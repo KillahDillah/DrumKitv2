@@ -9,7 +9,23 @@
 
 
 //this works the same as above, but with much less code!
-document.querySelector('button').addEventListener('click', function () {
-    alert('heyo');
-})
+// document.querySelectorAll('button').addEventListener('click', function () {
+//     alert('heyo');
+// })
+// ////////////////////////////////////////// //
+// NOW ADD EVENTLISTENER TO EACH BUTTON //
+// How I did it
 
+let buttons = document.querySelectorAll('.drum'); // targeting drum because if another button were to be added later that IS NOT  part of the drum kit, that button would also be selected
+for (let i = 0; i < buttons.length; i++){
+    buttons[i].addEventListener('click', function() {
+        alert(buttons[i].innerHTML);
+    })
+}
+
+//How instructor did it
+// for (var i = 0; i < document.querySelectorAll('.drum').length; i++) {
+//     document.querySelectorAll('.drum')[i].addEventListener('click', function() {
+//         alert('heyo');
+//     });
+// }
