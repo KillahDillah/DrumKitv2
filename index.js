@@ -19,13 +19,15 @@
 let buttons = document.querySelectorAll('.drum'); // targeting drum because if another button were to be added later that IS NOT  part of the drum kit, that button would also be selected
 for (let i = 0; i < buttons.length; i++){
     buttons[i].addEventListener('click', function() {
-        alert(buttons[i].innerHTML);
+        this.style.color = 'white';
+        // var audio = new Audio('sounds/tom-1.mp3');  //creates Audio object
+        // audio.play();
     })
 }
 
 //How instructor did it
 // for (var i = 0; i < document.querySelectorAll('.drum').length; i++) {
 //     document.querySelectorAll('.drum')[i].addEventListener('click', function() {
-//         alert('heyo');
+//         console.log(this)
 //     });
 // }
