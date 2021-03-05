@@ -1,10 +1,24 @@
 let buttons = document.querySelectorAll(".drum");
 
-function toggleClass(elem) {
+for (let i = 0; i < buttons.length; i++) {
+  buttons[i].addEventListener("click", function() {
+    var currentKey = buttons[i].innerHTML;
+    toggleClass(currentKey);
+    makeNoise(currentKey);
+  });
+}
+
+document.addEventListener("keydown", function(e) {
+  toggleClass(e.key);
+  makeNoise(e.key);
+});
+
+function toggleClass(activeButton) {
+  var activeButton = document.querySelector("." + activeButton);
   for (i = 0; i < buttons.length; i++) {
-    buttons[i].classList.remove("active");
+    buttons[i].classList.remove("pressed");
   }
-  elem.classList.add("active");
+  activeButton.classList.add("pressed");
 }
 
 function makeNoise(key) {
@@ -41,17 +55,3 @@ function makeNoise(key) {
       break;
   }
 }
-
-for (let i = 0; i < buttons.length; i++) {
-  buttons[i].addEventListener("click", function() {
-    toggleClass(this);
-    var key = buttons[i].innerHTML;
-    makeNoise(key);
-  });
-}
-
-document.addEventListener("keydown", function(e) {
-  var activeElem = document.getElementsByClassName(e.key);
-  toggleClass(activeElem[0]);
-  makeNoise(e.key);
-});
