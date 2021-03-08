@@ -15,9 +15,6 @@ document.addEventListener("keydown", function(e) {
 
 function toggleClass(activeButton) {
   var activeButton = document.querySelector("." + activeButton);
-  //   for (i = 0; i < buttons.length; i++) {
-  //     buttons[i].classList.remove("pressed");
-  //   }
   activeButton.classList.add("pressed");
 
   setTimeout(() => {
